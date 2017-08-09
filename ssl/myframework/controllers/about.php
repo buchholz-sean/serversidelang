@@ -10,7 +10,7 @@ class about extends AppController
     {
         // default method
         $this->getView('header');
-        $this->getView('navigation');
+        $this->getView('navigation', array("pagename"=>"about"));
         $this->getView('about');
         $this->getView('footer');
     }

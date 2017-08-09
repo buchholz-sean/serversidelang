@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/css/bootstrap-off-canvas-nav.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-off-canvas-nav.css" rel="stylesheet">
 
   </head>
   <body class="off-canvas-nav-left" style="padding-top:70px;">

@@ -10,7 +10,7 @@ class welcome extends AppController
     {
         // default method
         $this->getView('header');
-        $this->getView('navigation');
+        $this->getView('navigation', array("pagename"=>"welcome"));
         $this->getView('welcome');
         $this->getView('modal');
         $this->getView('footer');

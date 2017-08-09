@@ -10,8 +10,16 @@ class contact extends AppController
     {
         // default method
         $this->getView('header');
-        $this->getView('navigation');
+        $this->getView('navigation', array("pagename"=>"contact"));
         $this->getView('contact');
+        $this->getView('footer');
+    }
+
+    public function formRecv()
+    {
+        $this->getView('header');
+        $this->getView('navigation', array("pagename"=>"contact"));
+        $this->getView('formRecv');
         $this->getView('footer');
     }
 }
