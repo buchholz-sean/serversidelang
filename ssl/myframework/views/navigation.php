@@ -17,9 +17,30 @@
         <li <?=@$data["pagename"]=="welcome"?'class="active"':''?>><a href="/welcome">Welcome</a></li>
         <li <?=@$data["pagename"]=="contact"?'class="active"':''?>><a href="/contact">Contact</a></li>
         <li <?=@$data["pagename"]=="about"?'class="active"':''?>><a href="/about">About</a></li>
+        <li <?=@$data["pagename"]=="ajax"?'class="active"':''?>><a href="/ajax">Ajax Login</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li <?=@$data["pagename"]=="users"?'class="active"':''?>><a href="/users">Log In</a></li>
+        <?php
+            if (@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1) {
+                ?>
+                <li <?=@$data["pagename"]=="profile"?'class="active"':''?>><a href="/users">Profile</a></li>
+                <li><a href="/auth/logout">Log Out</a></li>
+            <?php
+            } else {
+                ?>
+        <form class="navbar-form navbar-right" role="search" action="/auth/login" method="post">
+            <span class="label label-danger"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:''; ?></span>
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary" name="btnlogin">Log In</button>
+        </form>
+            <?php
+            }
+        ?>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

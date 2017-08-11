@@ -14,16 +14,16 @@
     $("#submitform").click(function(){
         $.ajax({
             method:"POST",
-            url:"/users/ajaxParams",
+            url:"/ajax/ajaxParams",
             data:{
                 "username":$("#usernameinput").val(),
                 "password":$("#passwordinput").val()
             },
             success:function(msg){
                 if (msg=="welcome") {
-                    window.location.replace("users/userHome");
+                    window.location.replace("ajax/userHome");
                 } else {
-                    window.location.replace("users/invalidLogin");
+                    window.location.replace("ajax/invalidLogin");
                 }
             }
 

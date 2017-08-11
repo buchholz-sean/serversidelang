@@ -3,7 +3,7 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Log In</h1>
-        <form action="/users/ajaxParams" method="POST">
+        <form action="/ajax/ajaxParams" method="POST">
           <div class="form-group">
             <label for="usernameinput">Username</label>
             <input type="text" class="form-control" id="usernameinput" name="username" placeholder="Enter username">

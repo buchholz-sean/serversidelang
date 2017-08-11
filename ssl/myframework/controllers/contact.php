@@ -11,7 +11,8 @@ class contact extends AppController
         // default method
         $this->getView('header');
         $this->getView('navigation', array("pagename"=>"contact"));
-        $this->getView('contact');
+        $random = substr(md5(rand()), 0, 7);
+        $this->getView('contact', array("cap"=>$random));
         $this->getView('footer');
     }
 
@@ -19,7 +20,15 @@ class contact extends AppController
     {
         $this->getView('header');
         $this->getView('navigation', array("pagename"=>"contact"));
-        $this->getView('formRecv');
+        if (@$_REQUEST["captcha"]==$_SESSION["captcha"]) {
+            if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                header("Location:/contact?error=Invalid Email");
+            } else {
+                $this->getView('formRecv');
+            }
+        } else {
+            header("Location:/contact?error=Bad Captcha");
+        }
         $this->getView('footer');
     }
 }
