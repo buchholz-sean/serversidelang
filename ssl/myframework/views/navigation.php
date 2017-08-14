@@ -17,7 +17,12 @@
         <li <?=@$data["pagename"]=="welcome"?'class="active"':''?>><a href="/welcome">Welcome</a></li>
         <li <?=@$data["pagename"]=="contact"?'class="active"':''?>><a href="/contact">Contact</a></li>
         <li <?=@$data["pagename"]=="about"?'class="active"':''?>><a href="/about">About</a></li>
+        <?php if (!@$_SESSION["loggedin"] || @$_SESSION["loggedin"] != 1) {
+    ?>
         <li <?=@$data["pagename"]=="ajax"?'class="active"':''?>><a href="/ajax">Ajax Login</a></li>
+        <li <?=@$data["pagename"]=="dynamic"?'class="active"':''?>><a href="/auth/dynamic">Dynamic Login</a></li>
+        <?php
+}?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php

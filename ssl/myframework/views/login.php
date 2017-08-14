@@ -2,7 +2,7 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Log In</h1>
+        <h1>Ajax Log In</h1>
         <form action="/ajax/ajaxParams" method="POST">
           <div class="form-group">
             <label for="usernameinput">Username</label>
@@ -14,6 +14,7 @@
               <input type="button" name="ajaxsubmit" value="Log In" class="btn btn-secondary" id="submitform" />
               <button type="button" class="btn btn-info" data-toggle="popover" title="Form Info" data-content="This is a custom Ajax form.">Form Info</button>
           </p>
+          <span class="label label-danger"><?=@$_REQUEST["ajaxmsg"]?$_REQUEST["ajaxmsg"]:'';?></span>
         </form>
       </div>
 

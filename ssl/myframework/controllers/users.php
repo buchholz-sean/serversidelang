@@ -18,4 +18,32 @@ class users extends AppController
         $this->getView('userHome');
         $this->getView('footer');
     }
+
+    public function update()
+    {
+        if ($_FILES["img"]["name"]!="") {
+            $imageFileType = pathinfo("assets/".$_FILES["img"]["name"], PATHINFO_EXTENSION);
+            if (file_exists("assets/".$_FILES["img"]["name"])) {
+                $msg = "File exists";
+                $lblCl = "danger";
+                header("Location:/users?profpicmsg=".$msg."&class=".$lblCl);
+            } else {
+                if ($imageFileType != "jpg" && $imageFileType != "png") {
+                    $msg = "Sorry, please select a .jpg or .png";
+                    $lblCl = "info";
+                    header("Location:/users?profpicmsg=".$msg."&class=".$lblCl);
+                } else {
+                    if (move_uploaded_file($_FILES["img"]["tmp_name"], "assets/".$_FILES["img"]["name"])) {
+                        $msg = "File uploaded successfully";
+                        $lblCl = "success";
+                        header("Location:/users?profpicmsg=".$msg."&class=".$lblCl);
+                    } else {
+                        $msg = "Error uploading file.";
+                        $lblCl = "danger";
+                        header("Location:/users?profpicmsg=".$msg."&class=".$lblCl);
+                    }
+                }
+            }
+        }
+    }
 }

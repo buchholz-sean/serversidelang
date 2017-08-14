@@ -23,7 +23,7 @@
                 if (msg=="welcome") {
                     window.location.replace("ajax/userHome");
                 } else {
-                    window.location.replace("ajax/invalidLogin");
+                    window.location.replace("/ajax?ajaxmsg=Incorrect Login");
                 }
             }
 

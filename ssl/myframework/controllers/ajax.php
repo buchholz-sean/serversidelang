@@ -19,8 +19,9 @@ class ajax extends AppController
     {
         if (@$_REQUEST["username"]=="sean" && @$_REQUEST["password"]=="root") {
             echo "welcome";
+            $_SESSION["loggedin"] = 1;
         } else {
-            echo "wrong login";
+            echo "invalid";
         }
     }
 
@@ -29,14 +30,6 @@ class ajax extends AppController
         $this->getView('header');
         $this->getView('navigation');
         $this->getView('userHome');
-        $this->getView('footer');
-    }
-
-    public function invalidLogin()
-    {
-        $this->getView('header');
-        $this->getView('navigation');
-        $this->getView('invalidLogin');
         $this->getView('footer');
     }
 }
