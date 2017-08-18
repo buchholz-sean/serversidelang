@@ -10,9 +10,6 @@
         </p>
       </div>
 
-
-
-
       <div class="jumbotron">
           <h2>Carousel Example</h2>
           <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="2000">

@@ -15,4 +15,12 @@ class welcome extends AppController
         $this->getView('modal');
         $this->getView('footer');
     }
+
+    public function thanks()
+    {
+        $this->getView('header');
+        $this->getView('navigation', array("pagename"=>"welcome"));
+        $this->getView('thanks');
+        $this->getView('footer');
+    }
 }

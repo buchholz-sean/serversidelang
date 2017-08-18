@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/welcome">Sean Buchholz</a>
+      <a class="navbar-brand" href="/welcome">SSL</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,7 +20,7 @@
         <?php if (!@$_SESSION["loggedin"] || @$_SESSION["loggedin"] != 1) {
     ?>
         <li <?=@$data["pagename"]=="ajax"?'class="active"':''?>><a href="/ajax">Ajax Login</a></li>
-        <li <?=@$data["pagename"]=="dynamic"?'class="active"':''?>><a href="/auth/dynamic">Dynamic Login</a></li>
+        <li <?=@$data["pagename"]=="dynamic"?'class="active"':''?>><a href="/dynamic">Dynamic Login</a></li>
         <?php
 }?>
       </ul>
@@ -28,7 +28,7 @@
         <?php
             if (@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1) {
                 ?>
-                <li <?=@$data["pagename"]=="profile"?'class="active"':''?>><a href="/users">Profile</a></li>
+                <li <?=@$data["pagename"]=="profile"?'class="active"':''?>><a href="/profile">Profile</a></li>
                 <li><a href="/auth/logout">Log Out</a></li>
             <?php
             } else {
@@ -43,6 +43,7 @@
             </div>
             <button type="submit" class="btn btn-primary" name="btnlogin">Log In</button>
         </form>
+        <li <?=@$data["pagename"]=="register"?'class="active"':''?>><a href="/account/register">Register</a></li>
             <?php
             }
         ?>

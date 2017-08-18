@@ -5,7 +5,7 @@
         <h1>Dynamic Log In</h1>
         <p>Please upload a properly credentialed .txt file to log in.</p>
         <hr>
-        <form action="/auth/formlogin" method="post" enctype="multipart/form-data">
+        <form action="/dynamic/formlogin" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="btn btn-info btn-file">Select File
                     <input type="file" name="creds" style="display:none;">

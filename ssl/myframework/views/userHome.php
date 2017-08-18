@@ -1,10 +1,18 @@
 <div class="container">
     <div class="jumbotron">
-        <h1>Welcome back!</h1>
+        <span class="label label-success"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?></span>
+        <h1>Welcome back, <?php echo @$_SESSION["username"];?>!</h1>
         <p>It's good to see you again!</p>
+        <hr>
+        <div class="list-group">
+            <a href="account/newPass" class="list-group-item list-group-item-action">Change Password</a>
+            <a href="account/confirmDelete" class="list-group-item list-group-item-action">Delete Account</a>
+        </div>
+
+
     </div>
     <div class="form-group">
-        <form action="/users/update" method="post" enctype="multipart/form-data">
+        <form action="/profile/updatePic" method="post" enctype="multipart/form-data">
             <label class="btn btn-info btn-file">Browse Files
                 <input type="file" name="img" style="display:none;">
             </label>

@@ -4,7 +4,7 @@ class AppController
 {
     public function __construct($urlPathParts, $config)
     {
-        $this->db = new PDO('mysql:dbname'.$config['dbname'].';', $config['dbuser'], $config['dbpass']);
+        $this->db = new PDO("mysql:dbname=".$config["dbname"].";", $config["dbuser"], $config["dbpass"]);
 
         $this->urlPathParts = $urlPathParts;
 
@@ -40,7 +40,24 @@ class AppController
         require_once './views/'.$page.'.php';
     }
 
-    public function getModel()
+    public function getModel($page)
     {
+        require_once './models/'.$page.'.php';
+        $model = new $page($this);
+        return $model;
+    }
+
+    public function redirect($loc)
+    {
+        if (!headers_sent()) {
+            header("Location:".$loc);
+        } else {
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="'.$loc.'";';
+            echo '</script>';
+            echo '<noscript>';
+            echo '<meta http-equiv="refresh" content="0;url='.$loc.'" />';
+            echo '</noscript>';
+        }
     }
 }

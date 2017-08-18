@@ -2,8 +2,24 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>About Us</h1>
-        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis.</p>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Fruit</th>
+                      <th colspan='2'>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <?php
+                      foreach ($data as $fruit) {
+                          echo '<tr><td class="col-md-8">'.$fruit['name'].'</td>
+                          <td><a href="/about/editForm?id='.$fruit['id'].'">Edit</a></td>
+                          <td><a href="/about/deleteItem?id='.$fruit['id'].'">Delete</a></td></tr>';
+                      };
+                  ?>
+              </tbody>
+          </table>
+        <hr>
+            <a href="/about/addForm" class="btn btn-primary">Add Items &raquo;</a>
       </div>
-
 </div> <!-- /container -->
